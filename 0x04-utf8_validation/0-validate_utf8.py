@@ -10,7 +10,6 @@ def validUTF8(data):
     """
     try:
         for byte in data:
-            # Ensure that only the 8 least significant bits are considered
             byte = byte & 0xFF
             byte_data = bytes([byte])
             byte_data.decode('utf-8', "strict")
