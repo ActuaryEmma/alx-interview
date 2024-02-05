@@ -1,8 +1,22 @@
 #!/usr/bin/python3
+"""
+shebang line specifies the interpreter to be used when executing the script.
+Sys module,provides access to variables used / maintained by Python interpreter
+and functions that interact strongly with the interpreter.
+"""
+
+
 import sys
 
 class Solution:
+    """
+    Define a class named Solution to encapsulate the N-Queens solving logic.
+    """
     def totalNQueens(self, n: int) -> int:
+        """
+        Define a method within the Solution class to solve
+        the N-Queens problem for a given board size 'n'.
+        """
         col = set()
         posDiag = set()
         negDiag = set()
@@ -11,13 +25,17 @@ class Solution:
         board = [['.'] * n for i in range(n)]
 
         def backtrack(r):
+            """
+            Nested recursive function to explore the N-Queens solution space
+            """
             if r == n:
                 copy = [[i, board[i].index('Q')] for i in range(n)]
                 res.append(copy)
                 return
 
             for c in range(n):
-                if c not in col and (r + c) not in posDiag and (r - c) not in negDiag:
+                if c not in col and (r + c) not in posDiag \
+                    and (r - c) not in negDiag:
                     col.add(c)
                     posDiag.add(r + c)
                     negDiag.add(r - c)
@@ -32,6 +50,9 @@ class Solution:
         backtrack(0)
         return res
 def main():
+    """
+    Define a main function to handle command-line arguments and print solutions
+    """
     if len(sys.argv) != 2:
         print("Usage: script_name.py N")
         sys.exit(1)
