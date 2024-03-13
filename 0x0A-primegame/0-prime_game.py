@@ -5,6 +5,7 @@ Prime Game
 
 
 def is_prime(num):
+    """ find primr number"""
     if num < 2:
         return False
     for i in range(2, int(num**0.5) + 1):
@@ -14,6 +15,9 @@ def is_prime(num):
 
 
 def isWinner(x, nums):
+    """
+    determine the winner. nums:array on n values x: rounds of the game
+    """
     if max(nums) > 10000 or x > 10000:
         return None
 
